@@ -10,44 +10,13 @@
   <!-- Google Fonts: Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Non-blocking font load: the hero paints with system fonts, then swaps -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"></noscript>
   
-  <!-- Tailwind CSS CDN with configuration -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            mono: ['JetBrains Mono', 'monospace'],
-          },
-          colors: {
-            brand: {
-              50: '#f0fdfa',
-              100: '#ccfbf1',
-              400: '#2dd4bf',
-              500: '#14b8a6',
-              600: '#0d9488',
-              900: '#134e4a',
-            },
-            dark: {
-              bg: '#09090b',
-              card: '#121217',
-              border: '#1f1f28',
-              hover: '#2a2a36'
-            }
-          },
-          boxShadow: {
-            'card': '0 0 0 1px rgba(255, 255, 255, 0.06), 0 10px 30px -10px rgba(0, 0, 0, 0.5)',
-            'card-hover': '0 0 0 1px rgba(45, 212, 191, 0.3), 0 20px 40px -15px rgba(20, 184, 166, 0.15)',
-            'glow': '0 0 25px -5px rgba(45, 212, 191, 0.25)'
-          }
-        }
-      }
-    }
-  </script>
+  <!-- Prebuilt Tailwind (no runtime CDN). Rebuild with: npm run build:css -->
+  <link rel="stylesheet" href="tailwind.css" />
   
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -840,6 +809,6 @@
     </form>
   </div>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>

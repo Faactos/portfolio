@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Portfolio for Paul Jacksen B — AI/ML Engineer",
   "scripts": {
+    "build:css": "tailwindcss -c tailwind.config.js -i tailwind.input.css -o tailwind.css --minify",
     "start": "npx serve .",
     "dev": "npx serve ."
   },
@@ -14,5 +15,8 @@
   ],
   "author": "Paul Jacksen B",
   "license": "MIT",
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
 }
